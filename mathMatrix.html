@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="eng">
+    <head>
+        <meta charset="utf=8"/>
+        <link rel="stylesheet" href="Matrix.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    </head>
+    <body onload="loadMpages()">
+        <header>
+            <a id="matrixx">Matrix</a>
+        </header>
+        
+        <nav>
+            <button id="start" title="start">start</button>
+           
+            <div class="overflowContainer">
+            <button id="timer" title="Timer">15</button>
+            <span id="timeList">
+                <a onclick="timeDuration(15)">15s</a>
+                <a onclick="timeDuration(20)">20s</a>
+                <a onclick="timeDuration(25)">25s</a>
+                <a onclick="timeDuration(30)">30s</a>
+                <input onclick="timeDuration(value)" id="input" type="number" value="35" step="5">
+            </span>
+            </div>
+         <div class="overflowContainer">
+           <button id="diceNumber">00</button>
+           <span id="levellist">
+            <label for="1" ><input onclick="setLevel(1)" type="checkbox" name="levellist"  id="1" tab-index="1"        >Amatuer</label>
+            <label for="2" ><input onclick="setLevel(2)" type="checkbox" name="levellist"  id="2" tab-index="2" checked>Matrix 1</label>
+            <label for="3" ><input onclick="setLevel(3)" type="checkbox" name="levellist"  id="3" tab-index="3"        >Matrix 2</label>
+            <label for="4" ><input onclick="setLevel(4)" type="checkbox" name="levellist"  id="4" tab-index="4"        >Matrix 3</label>
+            <label for="5" ><input onclick="setLevel(5)" type="checkbox" name="levellist"  id="5" tab-index="5"        >Compact X</label>
+            <label for="6" ><input onclick="setLevel(6)" type="checkbox" name="levellist"  id="6" tab-index="6"        >Hell</label>
+            <label for="7" ><input onclick="setLevel(7)" type="checkbox" name="levellist"  id="7" tab-index="7"        >Hell X</label>
+            <label for="8" ><input onclick="setLevel(8)" type="checkbox" name="levellist"  id="8" tab-index="8"        >Pro</label>
+            <label for="9" ><input onclick="setLevel(9)" type="checkbox" name="levellist"  id="9" tab-index="9"        >Pro X</label>
+             
+         </span>
+         </div>
+           
+           <button id="special">00</button>
+           <span id="value"  style="display:none;">0</span>
+           <input id="textBoard" type="text" value="" placeholder="+-/*" disabled>
+           <meter id="meter" value="0" min="0" max="0" >
+           </nav>
+                      
+        <main>
+            <div id="colonKeys" class="matrix">
+                
+            </div>
+            <div id="operatorButton">
+                <button id="v1" data-operator="+">+</button>
+                <button id="v2" data-operator="-">-</button>
+                <button id="v3" data-operator="x">x</button>
+                <button id="v4" data-operator="/">/</button>
+            </div>
+        
+        <br>
+        </main>
+
+        <div id="mpages" class="multipage">
+            <a href="puzzleMatrix.html" target="">a</a>
+            <a href="mathMatrix.html" target="">b</a>
+            <a href="#">c</a>
+            <a href="#">d</a>
+        </div>
+        <div class="symbolanimator" id="animator">
+            <div class="animatorcontainer">
+                <div id="fbox">M</div>
+                <div id="sbox">M</div>
+                <div id="tbox">x</div>
+                <div id="ftbox">x</div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Brain Matrix Collection </p>
+            <p class="paintblue">David Anderson, Andesoft </p>
+        </footer>
+
+        <script src="Matrix.js"></script>
+        <script src="mathMatrix.js"></script>
+        </body>
+</html>

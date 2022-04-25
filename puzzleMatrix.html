@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang = "eng">
+    <head>
+        <meta charset="utf=8"/>
+        <link rel="stylesheet" href="Matrix.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      
+    </head>
+    <body onload="loadMpages()">
+       
+        <header>
+            <a id="matrixx">Matrix</a>
+        </header>
+        <nav>
+            <div class="overflowContainer">
+                <button id="openSetValue" title="set Matrix Type">Matrix</button>
+                <span id="matrixTypeList">
+                <a onclick="setValue(9)">3x3</a>
+                <a onclick="setValue(16)">4x4</a>
+                <a onclick="setValue(25)">5x5</a>
+               </span>
+               </div>
+            
+                <button id="setTimer" title="Start time">
+                    <a >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-stopwatch" id="timersvg" viewBox="0 0 16 16" style="transform:scale(2); margin-right:2px;">
+                            <path d="M8.5 5.6a.5.5 2 1 0-1 0v2.9h-3a.5.5 0 0 0 0 1H8a.5.5 0 0 0 .5-.5V5.6z"/>
+                            <path d="M6.5 1A.5.5 0 0 1 7 .5h2a.5.5 0 0 1 0 1v.57c1.36.196 2.594.78 3.584 1.64a.715.715 0 0 1 .012-.013l.354-.354-.354-.353a.5.5 0 0 1 .707-.708l1.414 1.415a.5.5 0 1 1-.707.707l-.353-.354-.354.354a.512.512 0 0 1-.013.012A7 7 0 1 1 7 2.071V1.5a.5.5 0 0 1-.5-.5zM8 3a6 6 0 1 0 .001 12A6 6 0 0 0 8 3z"/>
+                          </svg>
+                    </a>
+                    <span class="badge" id="timerHour">0</span>
+                    <span class="badge" id="timerMinutes">0</span>
+                    <span class="badge" id="timerSeconds">0</span>
+                </button>
+        </nav>
+        <main>
+            <div id="colonKeys" class="matrix">
+            </div>
+        </main>
+        
+        <div id="mpages" class="multipage">
+            <a href="puzzleMatrix.html" target="">a</a>
+            <a href="mathMatrix.html" target="">b</a>
+            <a href="#">c</a>
+            <a href="#">d</a>
+        </div>
+        
+        <div class="symbolanimator" id="animator">
+            <div class="animatorcontainer">
+                <div id="fbox">M</div>
+                <div id="sbox">M</div>
+                <div id="tbox">x</div>
+                <div id="ftbox">x</div>
+            </div>
+            
+        </div>
+        <footer>
+            <p>Brain Matrix Collection </p>
+            <p class="paintblue">David Anderson, Andesoft </p>
+    </footer>
+        <script src="puzzleMatrix.js"></script>
+        <script src="Matrix.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,385 @@
+@matrix-collection;
+
+:root{
+    --bg-black:rgb(15, 15, 15);
+    --bg-lightblack:rgb(26, 25, 25);
+    --bg-darkblack:rgb(7, 7, 7);
+    --bg-white:rgb(255, 255, 255);
+    --bg-void:transparent;
+    --bg-red:rgb(180, 32, 32);
+    --bg-blue:rgb(17, 17, 228);
+    --bs-font:monospace,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --bs-fontsize-medium:calc(2vw + 2vh);
+    --bs-fontsize-big:calc(3vw + 3vh);
+    --bg-button-1:linear-gradient(180deg,rgb(26, 25, 25),rgb(15, 15, 15));
+    --bg-button-1-exF:linear-gradient(180deg,rgb(15, 15, 15),rgb(26, 25, 25));
+}
+body{
+    box-sizing: border-box !important;
+    background:var(--bg-lightblack);
+    color:var(--bg-white);
+    font-family:var(--bs-font);
+    margin: 0;
+    overflow:hidden;
+}
+*,::after,::before{
+    box-sizing: border-box;
+}
+*:focus{
+    border:none;
+    outline:none;
+}
+header{
+    text-align: center;
+    font-size:var(--bs-fontsize-medium);
+    box-shadow:0px 1px 5px 0px var(--bg-darkblack);
+    cursor: pointer;
+    padding:0.5rem 0;
+    vertical-align: middle
+}
+@media (min-width:1000px) {
+    header{
+        padding:0;
+    }
+}
+nav{
+    margin:3px 5px 0;
+}
+button{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    border: 1px solid black;
+    background-image:var(--bg-button-1);
+    padding:calc(1vh + 1vw);
+    color:var(--bg-white);
+    font-size:1rem;
+    font-family: var(--bs-font);
+    transition:0.5s ease-in-out;
+    cursor: pointer;
+}
+footer{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    text-align:center;
+    line-height:2px;
+    font-weight: 900;
+}
+input[type="text"],[type="number"]{
+    width:50%;
+    margin-top:5px;
+    color:var(--bg-darkblack);
+    text-align:center;
+    font-size:1rem;
+    font-family: var(--bs-font);
+    margin:0 25%;
+    transition:0.2s ease-in-out;
+}
+@media (min-width:1000px) {
+    input[type="text"]{
+        width:70%;
+        margin:2.5px 15%;
+    }
+}
+.paintblue{
+    color:var(--bg-blue);
+    font-weight:bold;
+}
+nav button:active{
+    background-image:var(--bg-button-1-exF);
+}
+span{
+    background:var(--bg-darkblack);
+    display:none;
+    position: absolute;
+    box-shadow:0px 1px 5px 0px var(--bg-darkblack);
+    z-index:1;
+}
+a{
+    cursor:pointer;
+    background: none;
+    transition:background 0.2s ease-in;
+    text-decoration:none;
+}
+span a{
+    display:block;
+    font-size:1rem;
+    padding: 0;
+    height:1.5rem;
+    text-align: center;
+    cursor:pointer;
+    background: none;
+    transition:background 0.2s ease-in;
+}
+span a:hover{
+    background:var(--bg-lightblack);
+}
+.badge{
+    display:inline-block;
+    background:var(--bg-darkblack);
+    border-radius:10%;
+    margin:1px;
+    position: inherit;
+    font-size:;
+    padding:0 2px;
+    color:var(--bg-blue);
+}
+main{
+    position: relative;
+    margin-top:2rem;
+}
+.matrix{
+    display:flex;
+    width:;
+    height:max-content ;
+    background-color: transparent;
+    flex-direction:row;
+    justify-content: center;
+    align-items: ;
+    flex-wrap: wrap;
+    margin:0 10vw;
+    position: relative;
+}
+.matrix button{
+    background: var(--bg-void);
+    font-size:calc(2vh + 2vw);
+    display:relative;
+    width:25vw;
+    height:;
+    border:1px solid white;
+}
+.matrix button:focus{
+    background:var(--bg-blue);
+}
+@media (min-width:1000px) {
+    .matrix button{
+        font-size:calc(1vh + 1vw);
+    }
+    
+}
+meter{
+    -webkit-appearance:meter;
+    display: block;
+    background:var(--bg-void);
+    height:5px;
+    border:none;
+    width:100%;
+    margin:2px;
+    position: relative;
+}
+meter::-webkit-meter-bar{
+    -webkit-appearance:none;
+    background-color:var(--bg-white);
+    height:100%;
+    border:3px;
+    position:;
+    cursor: col-resize;
+    border-radius:0;
+}
+meter::-webkit-meter-optimum-value{
+    background:var(--bg-darkblack);
+    height:100%;
+    background-size:100%;
+}
+meter::-webkit-meter-even-less-good-value{
+    background-image:linear-gradient(90deg,var(--bg-darkblack) 80%,var(--bg-red) 30%);
+}
+input[type="text"]{
+    position: relative;
+    height:2rem;
+    width:;
+    text-align:center;
+}
+#matrixTypeList{
+    display:block;
+    height:0px;
+    overflow:hidden;
+    transition: 0.2s ease-in-out;
+}
+#matrixTypeList a {
+    padding: 2px 2rem;
+}
+.style button{
+    background: ;
+}
+.style button:focus{
+    background:rgb(0, 0, 255,0.3);
+}
+.timerIcon{
+    fill:var(--bg-blue);
+}
+.multipage{
+    background:var(--bg-lightblack);
+    display:none;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content:center;
+    align-content: ;
+    box-shadow:0px 1px 5px 0px var(--bg-darkblack);
+    position: absolute;
+    width:50vw;
+    height:;
+    margin:0 25%;
+    z-index:1;
+    top:25vh;
+    animation: animate 0.5s 1 normal linear;
+    transition:transform 0.4s ease-in-out, top 0.2s ease;
+    transform:translateY();
+    transform-origin: top;
+    opacity:1;
+}
+.multipage a{
+    display:;
+    background:var(--bg-darkblack);
+    text-transform: capitalize;
+    vertical-align: middle;
+    width:40%;
+    height:15vh;
+    margin:2vh 2vw;
+    text-align: center;
+    border:2px solid transparent;
+    transition:border 0.6s ease;
+}
+.multipage a:hover{
+    border:2px solid rgb(218, 215, 215);
+}
+@-webkit-keyframes animate{
+    0%{top:5vh; opacity:0.1;}
+    25%{top:10vh; opacity:0.3;}
+    50%{top:15vh; opacity:0.5;}
+    75%{top:20vh; opacity:0.7;}
+    100%{top:25vh; opacity:1;}
+}
+
+.overflowContainer{
+    display: inline-block;
+    transition:0.2s ease-in-out;
+}
+
+.symbolanimator{
+    position: absolute;
+    background-color:;
+    top:25vh;
+    bottom:;
+    width:100%;
+    display:none;
+    justify-content: center;
+    align-items: center;
+}
+.animatorcontainer{
+    display: flex;
+    background-color:;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content:center;
+    align-content:center;
+    width:20vw;
+    height:20vh;
+}
+.animatorcontainer div{
+    display:block;
+    position: relative;
+    background: red;
+    width:40%;
+    height:40%;
+    margin:1px;
+    color: blue;
+    font-size:calc(1vw + 2vh);
+    text-align: center;    
+}
+.symbolanimator a{
+    font-size:calc(1vw + 2vh);
+    margin:1px;
+   
+}
+#fbox{
+    animation:  0.5s  infinite normal cubic-bezier(0, 2, 0, 1) forwards;
+}
+@keyframes fbox {
+    0%{background:  blue; color:blue;}
+    25%{background: blue; color:blue;}
+    50%{background: blue; color:blue;}
+    75%{background: blue; color:blue;}
+    100%{background:none;   color:red;}
+}
+#sbox{
+    animation:  0.5s infinite normal cubic-bezier(0, 2, 0, 1) forwards;
+}
+@keyframes sbox {
+    0%{background:blue;color:blue;}
+    25%{background: blue;color:blue;}
+    50%{background: blue;color:blue;}
+    75%{background:none;color:white;}
+    100%{background:blue;color:blue;}
+}
+#tbox{
+    animation:  0.5s  infinite normal cubic-bezier(0, 2, 0, 1) forwards;
+}
+@keyframes tbox {
+    0%{background:blue; color:blue;}
+    25%{background: none;color:green;}
+    50%{background: blue;color:blue;}
+    75%{background: blue;color:blue;}
+    100%{background:blue;color:blue;}
+}
+#ftbox{
+    animation:  0.5s  infinite normal cubic-bezier(0, 2, 0, 1) forwards;
+}
+@keyframes ftbox {
+    0%{background:blue;}
+    25%{background:blue;}
+    50%{background:none;}
+    75%{background: blue;}
+    100%{background:blue;}
+}
+
+/*mul*/
+#operatorButton{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    margin-top:1rem;
+}
+#operatorButton button{
+    width:10vw;
+    font-size:100%;
+    background:var(--bg-blue);
+    border:none;
+    font-weight: 800;
+    transition:0.4s;
+}
+#operatorButton button:focus{
+    background:var(--bg-darkblack);
+}
+
+#timeList{
+    display:block;
+    height:0px;
+    overflow: hidden;
+    transition:0.2s ease-in-out;
+}
+#levellist{
+    display:block;
+    font-size:1rem;
+    height:0px;
+    overflow: hidden;
+    transition:0.2s ease-in-out;
+}
+#levellist label{
+    display: block;
+    line-height:1rem;
+    height:2rem;
+    padding:2px 1rem;
+    cursor: pointer;
+    background: none;
+    transition: background 0.2s ease-in-out;
+    list-style: none;
+    line-height:2px;
+}
+#levellist label:hover{
+    background:var(--bg-lightblack);
+}
+input:checked > label{
+    color:var(--bg-blue);
+}
