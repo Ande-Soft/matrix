@@ -1,0 +1,211 @@
+body{
+    box-sizing: border-box !important;
+    background:var(--bg-lightblack);
+    color:var(--bg-white);
+    height:;
+    width: ;
+    font-family:var(--bs-font);
+    margin: 0;
+    overflow:hidden;
+}
+.menu{
+    box-shadow:0px 1px 5px 0px var(--bg-darkblack);
+    cursor: pointer;
+    position: absolute;
+    right:0.5rem;
+    top:0.5rem;
+    padding:0.25rem;
+}
+.nav{
+    display:none;
+    opacity: ;
+    background:rgb(1, 20, 42, 0.9) ;
+    box-shadow:0px 1px 5px 0px var(--bg-darkblack);
+    position:absolute;
+    width:40%;
+    right:2.5rem;
+    top:3.5rem;
+    z-index:2;
+    overflow: hidden;
+    animation: animateDisplayOpp 0.3s ease-in forwards;
+}
+/*drop_section*/
+.drop_section{
+    background:;
+}
+.drop_section a{
+    display: block;
+    margin: 0.2rem 5%;
+    text-align: center;
+    padding:0.3rem;
+    background:rgb(1, 28, 58, 0.6)  ;
+    transition: background 0.2 ease-in;
+}
+.drop_section a:hover{
+    background:rgb(1, 28, 58, 0.3)
+}
+.matrix_section{
+    margin-top:1rem;
+}
+.matrix_section a{
+    display: block;
+    margin: 0.2rem 5%;
+    text-align: center;
+    padding:0.3rem;
+    background:rgb(5, 48, 75, 0.7);
+    transition: background 0.2s ease-in;
+    color:white;
+    text-decoration: none;
+}
+.matrix_section a:hover{
+    background:rgb(5, 48, 75, 0.4);
+}
+/*main*/
+main{
+    position: ;
+    justify-content: ;
+    overflow: hidden;
+    width: 100%;
+    padding: 10px;
+    margin-top:10vh;
+    background:;
+}
+.matrix{
+    display:flex;
+    width:300px;
+    background-color: transparent;
+    flex-direction:row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin:0px auto;
+    position: ;
+    z-index: 1;
+    background: ;
+}
+.matrix button{
+    background:rgba(19, 78, 138, 0.3);
+    font-size:20px;
+    font-weight:bolder;
+    display:;
+    width:96px;
+    margin: 2px;
+    outline:0;
+    border:0;
+    color:white;
+    position: relative;
+    overflow: hidden;
+    padding:1rem 2rem;
+    transition:background 1000ms;
+}
+.butt{
+  position: relative;
+    overflow: hidden;
+    transition:background 100ms;
+    display:;
+    background: red;
+    border:0;
+    outline:0;
+    font-size:40px;
+    cursor: pointer;
+    padding:1rem 2rem;
+    vertical-align: middle;
+}
+.butt::before{
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.6);
+    content:'';
+    position: absolute;
+    top:50%;
+    left:50%;
+    width:0;
+    height:0;
+}
+.ripple{
+    position:absolute;
+    border-radius:50%;
+    display:inline-block;
+    transform: scale(0);
+    animation:ripple 600ms forwards;
+    background:rgba(233, 233, 233, 0.3);
+}
+@keyframes ripple {
+    
+    to{
+        transform: scale(4);
+        opacity:0;
+    }
+}
+
+#colonKeys{
+    position:;
+    z-index: 1px;
+}
+/*set timer*/
+.setTimer{
+    position:absolute;
+    bottom:10%;
+    display: flex;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+#setTimer{
+    position: relative;
+    cursor: pointer;
+}
+.timeDisplay{
+    display: ;
+    position: absolute;
+    background: black;
+    margin-left:0;
+    width:0;
+    height:20px;
+    overflow: hidden;
+    transition:500ms;
+    opacity: 0;
+    animation: closeTimer 300ms ease-in-out forwards;
+}
+.timeDisplay span{
+    position: relative;
+}
+.showTimer{
+   
+    animation: showTimer 200ms ease-in-out forwards;
+    transition:200ms;
+    opacity: 1;
+}
+@keyframes showTimer{
+    to{
+        width:fit-content;
+        margin-left: 100px;
+    }
+}
+@keyframes closeTimer{
+    from{width:fit-content; margin-left: 100px;}
+    to{width:0; margin-left: 0;}
+}
+
+.show{
+    height: 0;
+    transition:0.2s;
+    animation: animateDisplay 400ms ease-in forwards;
+    display: block;
+}
+@keyframes animateDisplay {
+    to{
+        display: block;
+        opacity:1;
+        height:20rem;
+    }
+}
+@keyframes animateDisplayOpp {
+    from{
+        height: 20rem;
+        display: block;
+    }
+    to{
+        height:0;
+        opacity:0;
+        display:none;
+    }
+}

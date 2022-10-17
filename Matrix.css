@@ -8,19 +8,26 @@
     --bg-void:transparent;
     --bg-red:rgb(180, 32, 32);
     --bg-blue:rgb(17, 17, 228);
+    --bg-blue-opaque:rgba(17, 17, 228, 0.5);
     --bs-font:monospace,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --bs-fontsize-medium:calc(2vw + 2vh);
     --bs-fontsize-big:calc(3vw + 3vh);
     --bg-button-1:linear-gradient(180deg,rgb(26, 25, 25),rgb(15, 15, 15));
     --bg-button-1-exF:linear-gradient(180deg,rgb(15, 15, 15),rgb(26, 25, 25));
 }
-body{
-    box-sizing: border-box !important;
-    background:var(--bg-lightblack);
-    color:var(--bg-white);
-    font-family:var(--bs-font);
-    margin: 0;
-    overflow:hidden;
+
+.background{
+    position: fixed;
+    top:0;
+    left:0;
+    height:645px;
+    width: 502px;
+    z-index:-1;
+    background-color: rgb(4, 15, 32);
+    background-image: url('matrix-m_bg3.jpg');
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+    background-origin:;
 }
 *,::after,::before{
     box-sizing: border-box;
@@ -29,14 +36,7 @@ body{
     border:none;
     outline:none;
 }
-header{
-    text-align: center;
-    font-size:var(--bs-fontsize-medium);
-    box-shadow:0px 1px 5px 0px var(--bg-darkblack);
-    cursor: pointer;
-    padding:0.5rem 0;
-    vertical-align: middle
-}
+
 @media (min-width:1000px) {
     header{
         padding:0;
@@ -45,7 +45,7 @@ header{
 nav{
     margin:3px 5px 0;
 }
-button{
+.button{
     -webkit-appearance: none;
     -moz-appearance: none;
     -o-appearance: none;
@@ -125,33 +125,12 @@ span a:hover{
     padding:0 2px;
     color:var(--bg-blue);
 }
-main{
-    position: relative;
-    margin-top:2rem;
-}
-.matrix{
-    display:flex;
-    width:;
-    height:max-content ;
-    background-color: transparent;
-    flex-direction:row;
-    justify-content: center;
-    align-items: ;
-    flex-wrap: wrap;
-    margin:0 10vw;
-    position: relative;
-}
+
+
 .matrix button{
-    background: var(--bg-void);
-    font-size:calc(2vh + 2vw);
-    display:relative;
-    width:25vw;
-    height:;
-    border:1px solid white;
+   
 }
-.matrix button:focus{
-    background:var(--bg-blue);
-}
+
 @media (min-width:1000px) {
     .matrix button{
         font-size:calc(1vh + 1vw);
@@ -200,11 +179,8 @@ input[type="text"]{
 #matrixTypeList a {
     padding: 2px 2rem;
 }
-.style button{
-    background: ;
-}
-.style button:focus{
-    background:rgb(0, 0, 255,0.3);
+.style{
+    background:rgba(61, 127, 241, 0.3);
 }
 .timerIcon{
     fill:var(--bg-blue);

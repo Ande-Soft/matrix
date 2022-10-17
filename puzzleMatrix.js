@@ -3,9 +3,12 @@ console.log("New MMX")
 
 //========= listing variables ==================
 const colonKeys = document.getElementById("colonKeys");
-const matrixBtn = document.getElementById("openSetValue");
+//const matrixBtn = document.getElementById("openSetValue");
 const setTimer = document.getElementById("setTimer");
 const timersvg = document.getElementById("timersvg");
+let menuBtn = document.querySelector('.menu')
+let matric = document.querySelectorAll('.matrix button')
+
 let matrixContent = ""
 let matrixType = 9
 let upOrDown = 3;
@@ -22,27 +25,35 @@ let matrix = [];
 let matrixDemo = []
 let timerIndicator = false;
 
+//function to open nav list
+function openNav(){
+    document.querySelector('.nav').classList.toggle('show')
+    //add_ripple()
+}
+
 // ======== alt window event for matrixTypeList
-window.addEventListener('click', e=>{
-    
-    if(e.target.matches('#openSetValue')){
-        //>>>>do nothing
+let nav = document.querySelector('.nav')
+window.addEventListener('click', (e)=>{
+    if(!e.target.matches('body')){
+
+    }
+    if(e.target.matches('.menu')){
+        openNav()
     }else{
-        document.getElementById('matrixTypeList').style.height = "0px"
-        matrixTypeTracker = true
+        document.querySelector('.nav').classList.remove('show')
     }
 })
 //====== event for matrixTypeList =======
 let matrixTypeTracker = true //>>>>> keep track for displaying and hiding matrixTypeList
-matrixBtn.addEventListener('click',e=>{
-    if(matrixTypeTracker===true){
-            document.getElementById('matrixTypeList').style.height = '80px'
-            matrixTypeTracker = false
-        }else{
-            document.getElementById('matrixTypeList').style.height = '0px'
-            matrixTypeTracker = true
-        }
-})
+//matrixBtn.addEventListener('click',e=>{
+//    if(matrixTypeTracker===true){
+//            document.getElementById('matrixTypeList').style.height = '80px'
+//            matrixTypeTracker = false
+//        }else{
+//            document.getElementById('matrixTypeList').style.height = '0px'
+//            matrixTypeTracker = true
+//        }
+//})
 
 //setTimer.setAttribute('disabled','disabled')
     let intervaler
@@ -75,11 +86,13 @@ setTimer.addEventListener('click', e=>{
       startInterval()
       timersvg.classList.add('timerIcon')
       timerIndicator = true
+      document.querySelector('.timeDisplay').classList.add('showTimer')
     }
      else{
         clearsInterval()
         timersvg.classList.remove('timerIcon')
         timerIndicator = false
+        document.querySelector('.timeDisplay').classList.remove('showTimer')
     }
    
   
@@ -87,7 +100,7 @@ setTimer.addEventListener('click', e=>{
 })
 //===== set the MatrixTypeList =======
 function setValue(matrixTypeN){
-     //console.log(matrixTypeN)
+   
      matrixType = matrixTypeN
      matrix = []
      matrixDemo = []
@@ -125,6 +138,7 @@ function setValue(matrixTypeN){
         //console.log(upOrDown, rightOrLeft)
     }
    AutomatingPuzzleContent()
+  //playBtn()
 }
 function AutomatingPuzzleContent (){
     const prevRandomKey = Math.floor(Math.random()*9)+1;
@@ -134,7 +148,7 @@ function AutomatingPuzzleContent (){
         [arr[i],arr[v]] = [arr[v],arr[i]]
     }
 }
-for ( i = 1; i < matrixType+1; i++){
+for (let  i = 1; i < matrixType+1; i++){
     if(prevRandomKey===i){
      matrix.push("");
      //console.log(prevRandomKey,i)
@@ -154,36 +168,41 @@ for( i = 0; i < matrix.length; i++){
 colonKeys.innerHTML = matrixContent;
 
 
-colonKeys.classList.add('style');
-//const setColor = matrix.values();
-//function setBackgroundColor(){
-//for(const value of setColor){
-//    //console.log(value)
-//    if(value===''){
-//       let style = matrix.indexOf(value) 
-//      let col = colonKeys.children.item(style)
-//       col.style.backgroundColor = "blue";
-//    }
-//}  
-//}
+function set_width(){
+    let root = Math.sqrt(i)
+    var clientWidth = window.innerWidth
+    let colon = document.querySelector('.matrix')
+    colon.style.width = `calc(${clientWidth}px - 20px)`
+    let colon_btn = document.querySelectorAll('.keys')
+    let colon_btn_width = (clientWidth - 20)/root
+    let matrix_width = clientWidth 
+    for (let x = 0; x < i; x++){
+       
+        colon_btn[x].style.width = `calc(${colon_btn_width}px - 4px)`
+       }
+   
+}
+set_width()
 
-playBtn()
+
+//playBtn()
 }
 function playBtn(n){
     const getValues = matrix.values();
     const getValue = colonKeys.childNodes;
-    for(body of getValue){
-        if(matrixType===16){
-            body.style.width = "20vw"
-             
-        }else if(matrixType===25){
-            body.style.width = "15vw"
-        }else if(matrixType===36){
-            body.style.width = "12vw"
-        }
-    }
+//
+    //console.log(n)
+    //for(body of getValue){
+    //    if(matrixType===16){
+    //        body.style.width = "20vw"
+    //         
+    //    }else if(matrixType===25){
+    //        body.style.width = "15vw"
+    //    }else if(matrixType===36){
+    //        body.style.width = "12vw"
+    //    }
+    //}
     const gameOn = matrix
-    //console.log(getValue[0].textContent)
     let amp;
     let tmp;
     //console.log(newGame[n].innerHTML)
@@ -191,9 +210,7 @@ function playBtn(n){
             let emptyCell = ''
         if(value===''){
           emptyCell = matrix.indexOf(value)
-         // console.log(emptyCell)
-          let cell = getValue[emptyCell].innerHTML
-         // console.log(cell)
+        // console.log(emptyCell)
         }
         if(emptyCell===n+rightOrLeft||emptyCell===n-rightOrLeft||
             emptyCell===n+upOrDown||emptyCell===n-upOrDown){
@@ -212,7 +229,14 @@ function playBtn(n){
             tmp = gameOn[n]
             gameOn[n] = gameOn[emptyCell]
             gameOn[emptyCell] = tmp
-           // console.log(getValue[n].textContent)
+            
+            let colonKeysButton =  document.querySelectorAll('.keys')
+          for(let i = 0; i < getValue.length; i++){
+           colonKeysButton[i].style.backgroundColor = "rgba(19, 78, 138, 0.3)"
+          }
+          getValue[n].style.backgroundColor = 'rgba(61, 127, 241, 0.3)'
+    
+          //console.log(getValue[n])
 
             amp = getValue[n].innerHTML
             getValue[n].innerHTML = getValue[emptyCell].innerHTML
@@ -223,16 +247,18 @@ function playBtn(n){
         }
         matrix
         matrixDemo
+        //console.log(matrixDemo, matrix)
         let winCount = 0
         for (let x in matrixDemo){
             let matrixDemoCheqeue = matrixDemo[x]
             let matrixCheque = matrix[x]
-            //console.log(matrixDemoCheqeue,matrixCheque)
-                if(matrixCheque===matrixDemo[x] && matrixDemoCheqeue===matrix[x]){
-                    //console.log('yogs!!')
+           // console.log(matrixDemoCheqeue,matrixCheque)
+                if(matrixCheque===matrixDemo[x] && matrixDemoCheqeue=== matrix[x]){
                     winCount++;
+                    //console.log('yogs!!' , winCount)
+                   //console.log(winCount)
                 }if (winCount===matrixType - 1){
-                    console.log('winner')
+                    console.log('winner', winCount)
                     matrix[emptyCell] = matrixDemo[emptyCell]
                     getValue[emptyCell].innerHTML = matrixDemo[emptyCell]
                     console.log(matrix, matrixDemo)
@@ -241,9 +267,32 @@ function playBtn(n){
     }
     
  
-
+    add_ripple(event)
 }
 
 AutomatingPuzzleContent()
 
-
+function add_ripple(event){
+    const btn = event.currentTarget
+    const circle = document.createElement('span')
+    circle.classList.add('ripple')
+    const diameter = Math.max(btn.clientWidth, btn.clientHeight);
+   // console.log(btn.offsetLeft, btn.offsetTop)
+    const radius = diameter / 2;
+    const ripple = document.querySelector('.ripple');
+    // styles
+   circle.style.width = circle.style.height = `${diameter}px`
+   circle.style.left = `${event.clientX - (btn.offsetleft - radius)}px`
+   circle.style.top = `${event.clientY - (btn.offsetTop - radius)}px`
+    
+    // check for existing ripple
+    if(ripple){
+        ripple.remove()
+    }
+    btn.append(circle);
+   // console.log(btn.offsetTop, event.target.offsetTop)
+}
+//const buttons = document.getElementsByClassName('button')
+//for (const buton in buttons){
+//    buton.addEventListener('click', add_ripple)
+//}
