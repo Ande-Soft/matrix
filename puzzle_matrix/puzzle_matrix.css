@@ -125,7 +125,7 @@ main{
     border-radius:50%;
     display:inline-block;
     transform: scale(0);
-    animation:ripple 600ms forwards;
+    animation:ripple 2s forwards;
     background:rgba(233, 233, 233, 0.3);
 }
 @keyframes ripple {
